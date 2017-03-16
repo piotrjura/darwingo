@@ -1,0 +1,21 @@
+{
+	"ImportPath": "github.com/piotrjura/darwin",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/go-stomp/stomp",
+			"Comment": "v1.0.1-56-g1c7d284",
+			"Rev": "1c7d284575f830f26e3dab2abaa9ce8aaff08058"
+		},
+		{
+			"ImportPath": "github.com/go-stomp/stomp/frame",
+			"Comment": "v1.0.1-56-g1c7d284",
+			"Rev": "1c7d284575f830f26e3dab2abaa9ce8aaff08058"
+		},
+		{
+			"ImportPath": "github.com/jlaffaye/ftp",
+			"Rev": "7b85eb4638a2c0473acefcfb929a98f879c15c86"
+		}
+	]
+}
