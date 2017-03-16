@@ -27,13 +27,6 @@ type TrainSchedule struct {
 	UID string `xml:"uid,attr"`
 }
 
-const queryTimetable string = `
-	<?xml version="1.0"?>
-	<Pport ts="%s" version="11" xmlns="http://www.thalesgroup.com/rtti/PushPort/v11">
-		<QueryTimetable />
-	</Pport>
-`
-
 func listen() {
 	conn, err := stomp.Dial("tcp", "",
 		stomp.ConnOpt.Login("", ""))

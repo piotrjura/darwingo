@@ -79,7 +79,7 @@ func getReferenceFilenames(conf config.FtpConfig) (string, string) {
 }
 
 func connect(config config.FtpConfig) *ftp.ServerConn {
-	conn, err := ftp.Connect(config.Url)
+	conn, err := ftp.Connect(config.URL)
 	if err != nil {
 		panic(err)
 	}
