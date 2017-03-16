@@ -35,13 +35,13 @@ const queryTimetable string = `
 `
 
 func listen() {
-	conn, err := stomp.Dial("tcp", "datafeeds.nationalrail.co.uk:61613",
-		stomp.ConnOpt.Login("d3user", "d3password"))
+	conn, err := stomp.Dial("tcp", "",
+		stomp.ConnOpt.Login("", ""))
 	if err != nil {
 		panic(err)
 	}
 
-	sub, err := conn.Subscribe("D399512165-45ca-4082-b02d-3a7796936d3b", stomp.AckClient)
+	sub, err := conn.Subscribe("", stomp.AckClient)
 	if err != nil {
 		panic(err)
 	}
