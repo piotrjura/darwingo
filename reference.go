@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"sync"
 
+	"fmt"
+
 	"github.com/fatih/color"
 	"github.com/jlaffaye/ftp"
 	"github.com/piotrjura/darwin/config"
@@ -59,8 +61,21 @@ type Location struct {
 	TOC  string `xml:"toc,attr"`
 }
 
+type Company struct {
+	TOC  string `xml:"toc,attr"`
+	Name string `xml:"tocname,attr"`
+	URL  string `xml:"url,attr"`
+}
+
+type LateReason struct {
+	Code int    `xml:"code,attr"`
+	Text string `xml:"reasontext,attr"`
+}
+
 type TimetableReference struct {
-	Locations []Location `xml:"LocationRef"`
+	Locations   []Location   `xml:"LocationRef"`
+	Companies   []Company    `xml:"Company"`
+	LateReasons []LateReason `xml:"LateRunningReasons>Reason"`
 }
 
 func downloadXML(file string, wg *sync.WaitGroup, c chan []byte, conf config.FtpConfig) {
@@ -110,13 +125,11 @@ func connect(config config.FtpConfig) *ftp.ServerConn {
 }
 
 func parseTimetables(x chan []byte, wg *sync.WaitGroup) Timetable {
-
 	defer wg.Done()
-	var timetable Timetable
 	d := <-x
 	color.Blue("Parsing timetable data...")
+	var timetable Timetable
 	err := xml.Unmarshal(d, &timetable)
-
 	if err != nil {
 		panic(err)
 	}
@@ -126,14 +139,18 @@ func parseTimetables(x chan []byte, wg *sync.WaitGroup) Timetable {
 }
 
 func parseReference(x chan []byte, wg *sync.WaitGroup) TimetableReference {
-
 	defer wg.Done()
-	var ref TimetableReference
+
 	d := <-x
 	color.Blue("Parsing reference data...")
+	var ref TimetableReference
 	err := xml.Unmarshal(d, &ref)
 	if err != nil {
 		panic(err)
+	}
+
+	for _, reason := range ref.LateReasons {
+		fmt.Println(reason.Text)
 	}
 
 	color.Green("Reference data parsed")
