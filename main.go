@@ -3,7 +3,7 @@ package main
 import (
 	"sync"
 
-	"github.com/piotrjura/darwin/config"
+	"github.com/piotrjura/darwingo/config"
 )
 
 func main() {

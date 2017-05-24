@@ -1,8 +1,16 @@
 {
-	"ImportPath": "github.com/piotrjura/darwin",
+	"ImportPath": "github.com/piotrjura/darwingo",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
+	"Packages": [
+		"./"
+	],
 	"Deps": [
+		{
+			"ImportPath": "github.com/fatih/color",
+			"Comment": "v1.4.1",
+			"Rev": "9131ab34cf20d2f6d83fdc67168a5430d1c7dc23"
+		},
 		{
 			"ImportPath": "github.com/go-stomp/stomp",
 			"Comment": "v1.0.1-56-g1c7d284",
@@ -16,6 +24,20 @@
 		{
 			"ImportPath": "github.com/jlaffaye/ftp",
 			"Rev": "7b85eb4638a2c0473acefcfb929a98f879c15c86"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-colorable",
+			"Comment": "v0.0.7-24-gded68f7",
+			"Rev": "ded68f7a9561c023e790de24279db7ebf473ea80"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-isatty",
+			"Comment": "v0.0.2",
+			"Rev": "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "a2e06a18b0d52d8cb2010e04b372a1965d8e3439"
 		}
 	]
 }

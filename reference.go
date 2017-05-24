@@ -10,7 +10,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/jlaffaye/ftp"
-	"github.com/piotrjura/darwin/config"
+	"github.com/piotrjura/darwingo/config"
 )
 
 type CallingPoint struct {

@@ -39,12 +39,6 @@ func listen() {
 		panic(err)
 	}
 
-	// q := []byte(fmt.Sprintf(queryTimetable, time.Now().Format(time.RFC3339)))
-	// err = conn.Send("", "application/xml", q)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
 	var ok = true
 	var msg *stomp.Message
 
